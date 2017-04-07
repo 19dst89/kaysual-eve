@@ -5,11 +5,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if current_user == nil
+    if check_id?(params[:id])
+      @user = User.find(params[:id])
+    elsif current_user == nil
       redirect_to root_path
-    elsif @user.id == current_user.id
+    else
       @user = current_user
     end
+
+  end
+
+
+  private
+
+  def check_id?(params)
+    User.exists?(params)
   end
 end
