@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "/characters/new", to: "characters#new", as: "new_character"
   get "/characters/:id", to: "characters#show", as: "character"
   post "/characters", to: "characters#create"
+  get "/characters/:id/edit", to: "characters#edit", as: "edit_character"
+  patch "/characters/:id", to: "characters#update"
 end
