@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   # Character Routes
   get "/toons", to: "toons#index"
-  get "/toons/new", to: "toons#new", as: "new_character"
-  get "/toons/:id", to: "toons#show", as: "character"
+  get "/toons/new", to: "toons#new", as: "new_toon"
+  get "/toons/:id", to: "toons#show", as: "toon"
   post "/toons", to: "toons#create"
-  get "/toons/:id/edit", to: "toons#edit", as: "edit_character"
+  get "/toons/:id/edit", to: "toons#edit", as: "edit_toon"
   patch "/toons/:id", to: "toons#update"
 end

@@ -1,5 +1,4 @@
 class ToonsController < ApplicationController
-  include EveOnline
   def index
     @toons = Toon.all
   end
@@ -7,7 +6,9 @@ class ToonsController < ApplicationController
   def show
     toon_id = params[:id]
     @toon = Toon.find(toon_id)
-    @toon = EveOnline::XML::AccountCharacters.new(@toon.key_id, @toon.v_code)
+    @characters = EveOnline::Account::Characters.new(@toon.key_id, @toon.v_code)
+    @character = @characters.characters.first
+    @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
   end
 
   def new
