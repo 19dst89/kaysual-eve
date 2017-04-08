@@ -1,0 +1,17 @@
+<div class="container">
+  <br>
+  <%= form_for @character do |f| %>
+    <div class="row">
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, placeholder: "Character Name", required: true %>
+      </div>
+      <br>
+      <div class="center field">
+        <%= f.submit "Add New Character", class: "waves-effect waves-light btn" %>
+      </div>
+    </div>
+  <% end %>
+  <br>
+</div>
