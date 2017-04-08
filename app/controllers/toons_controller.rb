@@ -1,0 +1,2 @@
+class ToonsController < ApplicationController
+end

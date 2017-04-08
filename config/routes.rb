@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   # Character Routes
-  get "/characters", to: "characters#index"
-  get "/characters/new", to: "characters#new", as: "new_character"
-  get "/characters/:id", to: "characters#show", as: "character"
-  post "/characters", to: "characters#create"
-  get "/characters/:id/edit", to: "characters#edit", as: "edit_character"
-  patch "/characters/:id", to: "characters#update"
+  get "/toons", to: "toons#index"
+  get "/toons/new", to: "toons#new", as: "new_character"
+  get "/toons/:id", to: "toons#show", as: "character"
+  post "/toons", to: "toons#create"
+  get "/toons/:id/edit", to: "toons#edit", as: "edit_character"
+  patch "/toons/:id", to: "toons#update"
 end
