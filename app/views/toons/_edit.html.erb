@@ -1,0 +1,26 @@
+<div class="container">
+  <br>
+  <%= form_for @toon do |f| %>
+    <div class="row">
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, placeholder: @toon.name, required: true %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :vCode %><br />
+        <%= f.text_field :v_code, placeholder: "v Code", required: true %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :KeyID %><br />
+        <%= f.number_field :key_id, placeholder: "Key ID", required: true %>
+      </div>
+      <div class="center field">
+        <%= f.submit "Edit Your Character", class: "waves-effect waves-light btn" %>
+      </div>
+    </div>
+  <% end %>
+  <br>
+</div>

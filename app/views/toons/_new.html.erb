@@ -1,0 +1,17 @@
+<div class="container">
+  <br>
+  <%= form_for @toon do |f| %>
+    <div class="row">
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, placeholder: "Toon Name", required: true %>
+      </div>
+      <br>
+      <div class="center field">
+        <%= f.submit "Add New Toon", class: "waves-effect waves-light btn" %>
+      </div>
+    </div>
+  <% end %>
+  <br>
+</div>
