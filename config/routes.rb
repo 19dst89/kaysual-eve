@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   # Character Routes
   get "/characters", to: "characters#index"
+  get "/characters/new", to: "characters#new", as: "new_character"
   get "/characters/:id", to: "characters#show", as: "character"
+  post "/characters", to: "characters#create"
 end
