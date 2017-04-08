@@ -38,6 +38,12 @@ gem 'devise'
 # Materialize CSS
 gem 'materialize-sass'
 
+# Nokogiri
+gem 'nokogiri'
+
+# Eve Online
+gem 'eve_online'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
