@@ -8,6 +8,8 @@ class ToonsController < ApplicationController
     @toon = Toon.find(toon_id)
     @characters = EveOnline::Account::Characters.new(@toon.key_id, @toon.v_code)
     @character = @characters.characters.first
+    @character_id = @character.character_id
+    @character_portrait = EveOnline::ESI::CharacterPortrait.new(@character_id)
     @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
   end
 
