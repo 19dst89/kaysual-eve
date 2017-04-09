@@ -4,8 +4,22 @@
 
 <h6><%= @toon.user.username %></h6>
 
-<p><%= link_to 'mode_edit', edit_toon_path(@toon), class: "right material-icons" %></p>
-
-
-<h4><%= @character.character_name %></h4>
-<h4><%= @account_balance.balance %></h4>
+<div class="container">
+  <div class="row">
+    <div class="col m12">
+      <div class="card horizontal">
+        <div class="card-image">
+          <%= image_tag(@character_portrait.large, class: "responsive-img") %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <span><%= @character.character_name %></span>
+          </div>
+          <div class="card-action">
+            <p><%= link_to 'Edit', edit_toon_path(@toon), class: "right material-icons" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
