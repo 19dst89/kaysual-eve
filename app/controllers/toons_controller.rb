@@ -19,7 +19,7 @@ class ToonsController < ApplicationController
     # Character ISK Balance
     @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
     # General Character Sheet i.e. skills and such
-    @character_sheet = EveOnline::Characters::CharacterSheet.new(@toon.key_id, @toon.v_code, { character_id: @character_id })
+    @character_sheet = character_sheet(@toon.key_id, @toon.v_code, @character_id)
     # Number of total skill points
     @num_of_skills = @character_sheet.skills.size
     # Account Status
