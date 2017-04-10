@@ -1,4 +1,6 @@
 class ToonsController < ApplicationController
+  include ToonsHelper
+
   def index
     @toons = Toon.all
   end
@@ -6,11 +8,22 @@ class ToonsController < ApplicationController
   def show
     toon_id = params[:id]
     @toon = Toon.find(toon_id)
+    # Character Info
     @characters = EveOnline::Account::Characters.new(@toon.key_id, @toon.v_code)
+    # First Character on account
     @character = @characters.characters.first
+    # Character ID
     @character_id = @character.character_id
+    # Character Portrait
     @character_portrait = EveOnline::ESI::CharacterPortrait.new(@character_id)
+    # Character ISK Balance
     @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
+    # General Character Sheet i.e. skills and such
+    @character_sheet = EveOnline::Characters::CharacterSheet.new(@toon.key_id, @toon.v_code, { character_id: @character_id })
+    # Number of total skill points
+    @num_of_skills = @character_sheet.skills.size
+    # Account Status
+    @account_status = EveOnline::Account::Status.new(@toon.key_id, @toon.v_code)
   end
 
   def new
