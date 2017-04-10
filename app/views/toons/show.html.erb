@@ -1,19 +1,24 @@
-<h2>Toon Show Page</h2>
-
 <h4><%= @toon.name %></h4>
 
 <h6><%= @toon.user.username %></h6>
 
-<div class="container">
+<div class="col md10">
   <div class="row">
-    <div class="col m12">
-      <div class="card horizontal">
+    <div class="col m10 offset-m1">
+      <h4 class="header white-text"><%= @character.character_name %></h4>
+      <div class="card blue darken-4 horizontal">
         <div class="card-image">
-          <%= image_tag(@character_portrait.large, class: "responsive-img") %>
+          <%= image_tag(@character_portrait.huge, class: "responsive-img") %>
         </div>
         <div class="card-stacked">
-          <div class="card-content">
-            <span><%= @character.character_name %></span>
+          <div class="card-content white-text">
+            <ul>
+              <li><strong>Corporation: </strong><%= @character.corporation_name %></li>
+              <li><strong>Alliance: </strong><%= @character.alliance_name %></li>
+              <li><strong>Balance: </strong><%= number_to_currency(@account_balance.balance) %></li>
+              <li><strong>Number of Skills: </strong><%= @num_of_skills %></li>
+              <li><strong>Logged in Hours: </strong><%= @account_status.logon_minutes / 60 %></li>
+            </ul>
           </div>
           <div class="card-action">
             <p><%= link_to 'Edit', edit_toon_path(@toon), class: "right material-icons" %></p>

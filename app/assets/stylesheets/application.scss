@@ -2,3 +2,12 @@
 $primary-color: color("blue", "lighten-2") !default;
 $secondary-color: color("yellow", "base") !default;
 @import "materialize";
+
+
+body {
+  background-color: #031926;
+}
+
+li {
+  font-size: 150%;
+}
