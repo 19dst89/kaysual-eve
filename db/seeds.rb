@@ -494,7 +494,7 @@
 # end
 # # p out
 
-[
+skills = [
   {:id=>2403, :name=>"Advanced Planetology"},
   {:id=>2406, :name=>"Planetology"},
   {:id=>2495, :name=>"Interplanetary Consolidation"},
@@ -976,3 +976,9 @@
   {:id=>43728, :name=>"Spatial Phenomena Generation"},
   {:id=>44067, :name=>"Invulnerability Core Operation"}
 ]
+
+skills.each do |skill|
+  SkillRef.create(skill)
+end
+
+puts "Created #{SkillRef.count} skills"

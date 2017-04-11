@@ -8,6 +8,7 @@ class ToonsController < ApplicationController
   def show
     toon_id = params[:id]
     @toon = Toon.find(toon_id)
+    @skills = SkillRef.all
     # Character Info
     @characters = EveOnline::Account::Characters.new(@toon.key_id, @toon.v_code)
     # First Character on account
@@ -26,6 +27,16 @@ class ToonsController < ApplicationController
     @account_status = EveOnline::Account::Status.new(@toon.key_id, @toon.v_code)
 
     @all_dem_skills = all_skills(@toon.key_id, @toon.v_code, @character_id)
+
+    #sort skills into name => level_trained_to
+    @skill_hash = {}
+    @all_dem_skills.each do |my_skill|
+      @skills.each do |all_skill|
+        if my_skill.type_id == all_skill.id
+          @skill_hash[all_skill.name] = my_skill.level
+        end
+      end
+    end
   end
 
   def new
