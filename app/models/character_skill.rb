@@ -1,0 +1,2 @@
+class CharacterSkill < ApplicationRecord
+end
