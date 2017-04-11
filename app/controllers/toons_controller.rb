@@ -37,6 +37,11 @@ class ToonsController < ApplicationController
         end
       end
     end
+    @level_fives = @skill_hash.select {|k,v| v == 5}
+    @level_fours = @skill_hash.select {|k,v| v == 4}
+    @level_threes = @skill_hash.select {|k,v| v == 3}
+    @level_twos = @skill_hash.select {|k,v| v == 2}
+    @level_ones = @skill_hash.select {|k,v| v == 1}
   end
 
   def new

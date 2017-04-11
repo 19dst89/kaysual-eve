@@ -11,3 +11,11 @@ body {
 li {
   font-size: 150%;
 }
+
+table tr:hover {
+  background-color: grey;
+}
+
+tr td:hover {
+  background-color: grey;
+}

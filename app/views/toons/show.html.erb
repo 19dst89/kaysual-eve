@@ -2,7 +2,7 @@
 
 <h6><%= @toon.user.username %></h6>
 
-<div class="col md10">
+<div class="col m10">
   <div class="row">
     <div class="col m10 offset-m1">
       <h4 class="header white-text"><%= @character.character_name %></h4>
@@ -29,8 +29,107 @@
   </div>
 </div>
 
-<div>
-  <ul>
-    <li><%= @skill_hash.select {|k,v| v > 4} %></li>
-  </ul>
+<div class="row">
+  <div class="col m2 offset-m1">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th class="white-text">Skill Name</th>
+          <th class="white-text">Level Trained</th>
+        </tr>
+      </thead>
+      <% @level_fives.each do |name, level| %>
+        <tbody>
+          <tr>
+            <td class="white-text"><%= name %></td>
+            <td class="white-text"><%= level %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col m2">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th class="white-text">Skill Name</th>
+          <th class="white-text">Level Trained</th>
+        </tr>
+      </thead>
+      <% @level_fours.each do |name, level| %>
+        <tbody>
+          <tr>
+            <td class="white-text"><%= name %></td>
+            <td class="white-text"><%= level %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col m2">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th class="white-text">Skill Name</th>
+          <th class="white-text">Level Trained</th>
+        </tr>
+      </thead>
+      <% @level_threes.each do |name, level| %>
+        <tbody>
+          <tr>
+            <td class="white-text"><%= name %></td>
+            <td class="white-text"><%= level %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col m2">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th class="white-text">Skill Name</th>
+          <th class="white-text">Level Trained</th>
+        </tr>
+      </thead>
+      <% @level_twos.each do |name, level| %>
+        <tbody>
+          <tr>
+            <td class="white-text"><%= name %></td>
+            <td class="white-text"><%= level %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col m2">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th class="white-text">Skill Name</th>
+          <th class="white-text">Level Trained</th>
+        </tr>
+      </thead>
+      <% @level_ones.each do |name, level| %>
+        <tbody>
+          <tr>
+            <td class="white-text"><%= name %></td>
+            <td class="white-text"><%= level %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
