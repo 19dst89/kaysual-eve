@@ -24,6 +24,8 @@ class ToonsController < ApplicationController
     @num_of_skills = @character_sheet.skills.size
     # Account Status
     @account_status = EveOnline::Account::Status.new(@toon.key_id, @toon.v_code)
+
+    @all_dem_skills = all_skills(@toon.key_id, @toon.v_code, @character_id)
   end
 
   def new
