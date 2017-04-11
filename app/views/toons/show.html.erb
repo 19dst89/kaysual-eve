@@ -28,3 +28,11 @@
     </div>
   </div>
 </div>
+
+<div>
+  <ul>
+    <% @all_dem_skills.each do |skill| %>
+      <li><%= skill.type_id %></li>
+    <%end%>
+  </ul>
+</div>
