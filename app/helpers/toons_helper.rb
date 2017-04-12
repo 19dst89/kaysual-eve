@@ -1,16 +1,8 @@
 module ToonsHelper
 
-  def character_sheet(key_id, v_code, character_id)
-    EveOnline::Characters::CharacterSheet.new(key_id, v_code, { character_id: character_id })
-  end
-
   def all_skills(key_id, v_code, character_id)
     sheet = EveOnline::Characters::CharacterSheet.new(key_id, v_code, { character_id: character_id })
     sheet.skills
-  end
-
-  def skill_names(key_id, v_code, character_id)
-
   end
 
   def skill_names_by_level(key_id, v_code, character_id)
