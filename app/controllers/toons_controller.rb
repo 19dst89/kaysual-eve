@@ -8,15 +8,12 @@ class ToonsController < ApplicationController
   def show
     toon_id = params[:id]
     @toon = Toon.find(toon_id)
-    @skills = SkillRef.all
-    # Character Info
-    @characters = EveOnline::Account::Characters.new(@toon.key_id, @toon.v_code)
     # First Character on account
-    @character = @characters.characters.first
+    @character = @toon.eve_character
     # Character ID
     @character_id = @character.character_id
     # Character Portrait
-    @character_portrait = EveOnline::ESI::CharacterPortrait.new(@character_id)
+    @character_portrait = @character.eve_portrait
     # Character ISK Balance
     @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
     # General Character Sheet i.e. skills and such
@@ -26,22 +23,7 @@ class ToonsController < ApplicationController
     # Account Status
     @account_status = EveOnline::Account::Status.new(@toon.key_id, @toon.v_code)
 
-    @all_dem_skills = all_skills(@toon.key_id, @toon.v_code, @character_id)
-
-    #sort skills into name => level_trained_to
-    @skill_hash = {}
-    @all_dem_skills.each do |my_skill|
-      @skills.each do |all_skill|
-        if my_skill.type_id == all_skill.id
-          @skill_hash[all_skill.name] = my_skill.level
-        end
-      end
-    end
-    @level_fives = @skill_hash.select {|k,v| v == 5}
-    @level_fours = @skill_hash.select {|k,v| v == 4}
-    @level_threes = @skill_hash.select {|k,v| v == 3}
-    @level_twos = @skill_hash.select {|k,v| v == 2}
-    @level_ones = @skill_hash.select {|k,v| v == 1}
+    @skills_by_level = skill_names_by_level(@toon.key_id, @toon.v_code, @character_id)
   end
 
   def new
