@@ -13,16 +13,16 @@ class ToonsController < ApplicationController
     # Character ID
     @character_id = @character.character_id
     # Character Portrait
-    @character_portrait = @character.eve_portrait
+    @character_portrait = @toon.eve_portrait
     # Character ISK Balance
-    @account_balance = EveOnline::Characters::AccountBalance.new(@toon.key_id, @toon.v_code)
+    @account_balance = @toon.eve_account_balance
     # General Character Sheet i.e. skills and such
-    @character_sheet = character_sheet(@toon.key_id, @toon.v_code, @character_id)
+    @character_sheet = @toon.eve_character_sheet
     # Number of total skill points
     @num_of_skills = @character_sheet.skills.size
     # Account Status
-    @account_status = EveOnline::Account::Status.new(@toon.key_id, @toon.v_code)
-
+    @account_status = @toon.eve_account_status
+    # Organize Skills By Level Trained
     @skills_by_level = skill_names_by_level(@toon.key_id, @toon.v_code, @character_id)
   end
 

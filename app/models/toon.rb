@@ -7,8 +7,24 @@ class Toon < ApplicationRecord
     @eve_character ||= eve_characters.first
   end
 
+  def eve_character_id
+    eve_character.character_id
+  end
+
   def eve_portrait
     @eve_portrait ||= EveOnline::ESI::CharacterPortrait.new(eve_character.character_id)
+  end
+
+  def eve_account_balance
+    @eve_account_balance ||= EveOnline::Characters::AccountBalance.new(key_id, v_code)
+  end
+
+  def eve_account_status
+    @account_status ||= EveOnline::Account::Status.new(key_id, v_code)
+  end
+
+  def eve_character_sheet
+    EveOnline::Characters::CharacterSheet.new(key_id, v_code, { character_id: eve_character_id })
   end
 
   private
