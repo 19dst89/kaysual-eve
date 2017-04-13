@@ -14,8 +14,12 @@
 
 Description:
 
-The user will be able to see most information about their eve online characters using eve's api.
+The user will be able to see most information about their eve online characters using eve's api. Everything from their trained skills to their account status.
 
+# Plans for the Future
+- More Specific Information about each character.
+- Skill queue with countdown
+- Read account wide apis
 
 
 # Creator
