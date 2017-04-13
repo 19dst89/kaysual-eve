@@ -1,0 +1,4 @@
+<h2>All of Your toons</h2>
+<% current_user.toons.each do |toon| %>
+  <h4><%= toon.name %></h4>
+<% end %>
