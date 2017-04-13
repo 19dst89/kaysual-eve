@@ -1,5 +1,7 @@
-<h1>Welcome to Kaysual Eve</h1>
-
 <div class="container center white-text">
   <h3>Internet Spaceships is Serious Business</h3>
+
+  <% if current_user != nil %>
+    <h5><%= link_to "View Your Characters", toons_path %></h5>
+  <% end %>
 </div>

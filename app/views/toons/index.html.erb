@@ -1,20 +1,20 @@
 <h2>All of Your toons</h2>
-<div class="container">
   <% current_user.toons.each do |toon| %>
-    <div class="col m4">
-      <div class="card blue darken-4 horizontal">
-        <h4 class="header"><%= link_to toon.name, toon_path(toon) %></h4>
-        <div class="card-image">
-          <%= image_tag(toon.eve_portrait.medium, class: "resposive-img") %>
-        </div>
-        <div class="card-stacked">
-          <div class="card-content white-text">
-            <ul>
-              <li>Toon info placeholder</li>
-            </ul>
-          </div>
+<div class="container">
+  <div class="col m3">
+    <h4 class="header"><%= link_to toon.name, toon_path(toon) %></h4>
+    <div class="card blue darken-4 horizontal col m4">
+      <div class="card-image">
+        <%= image_tag(toon.eve_portrait.medium, class: "resposive-img") %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content white-text">
+          <ul>
+            <li>Toon info placeholder</li>
+          </ul>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
+  <% end %>
