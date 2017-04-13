@@ -27,6 +27,10 @@ class Toon < ApplicationRecord
     EveOnline::Characters::CharacterSheet.new(key_id, v_code, { character_id: eve_character_id })
   end
 
+  def eve_skill_in_training_end
+    EveOnline::Characters::SkillInTraining.new(key_id, v_code, eve_character_id).training_end_time
+  end
+
   private
 
     def eve_characters

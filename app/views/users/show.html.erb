@@ -1,1 +1,27 @@
-<h5>Welcome, <%= @user.username %></h5>
+<h5>Welcome, <%= current_user.username %></h5>
+<div class="container">
+  <%= link_to 'Add Character', new_toon_path %>
+  <br>
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th class="white-text">Character Name</th>
+        <th class="white-text">Key ID</th>
+        <th class="white-text">V Code</th>
+        <th class="white-text">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.toons.each do |toon| %>
+        <tr>
+          <td><%= link_to toon.name, toon_path(toon) %></td>
+          <td class="white-text"><%= toon.key_id %></td>
+          <td class="white-text"><%= toon.v_code %></td>
+          <td><%= link_to "mode_edit", edit_toon_path(toon), class: "material-icons" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <h4 class="center"><%= link_to "View Your Characters",  toons_path %></h4>
+</div>

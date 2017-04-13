@@ -8,22 +8,27 @@ class ToonsController < ApplicationController
   def show
     toon_id = params[:id]
     @toon = Toon.find(toon_id)
-    # First Character on account
-    @character = @toon.eve_character
-    # Character ID
-    @character_id = @character.character_id
-    # Character Portrait
-    @character_portrait = @toon.eve_portrait
-    # Character ISK Balance
-    @account_balance = @toon.eve_account_balance
-    # General Character Sheet i.e. skills and such
-    @character_sheet = @toon.eve_character_sheet
-    # Number of total skill points
-    @num_of_skills = @character_sheet.skills.size
-    # Account Status
-    @account_status = @toon.eve_account_status
-    # Organize Skills By Level Trained
-    @skills_by_level = skill_names_by_level(@toon.key_id, @toon.v_code, @character_id)
+
+    if @toon.user_id == current_user.id
+      # First Character on account
+      @character = @toon.eve_character
+      # Character ID
+      @character_id = @character.character_id
+      # Character Portrait
+      @character_portrait = @toon.eve_portrait
+      # Character ISK Balance
+      @account_balance = @toon.eve_account_balance
+      # General Character Sheet i.e. skills and such
+      @character_sheet = @toon.eve_character_sheet
+      # Number of total skill points
+      @num_of_skills = @character_sheet.skills.size
+      # Account Status
+      @account_status = @toon.eve_account_status
+      # Organize Skills By Level Trained
+      @skills_by_level = skill_names_by_level(@toon.key_id, @toon.v_code, @character_id)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def new
@@ -56,6 +61,17 @@ class ToonsController < ApplicationController
     else
       flash[:notice] = "You do not own this toon"
       redirect_to root_path
+    end
+  end
+
+  def destroy
+    @toon = Toon.find_by_id(params[:id])
+    if current_user.id == @toon.user_id
+      @toon.destroy
+      redirect_to user_path(current_user)
+    else
+      flash[:notice] = "You do not own this character"
+      redirect_to toon_path(@toon)
     end
   end
 

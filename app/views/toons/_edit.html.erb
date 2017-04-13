@@ -3,17 +3,17 @@
   <%= form_for @toon do |f| %>
     <div class="row">
 
-      <div class="field">
+      <div class="field white-text">
         <%= f.label :name %><br />
         <%= f.text_field :name, placeholder: @toon.name, required: true %>
       </div>
       <br>
-      <div class="field">
+      <div class="field white-text">
         <%= f.label :vCode %><br />
         <%= f.text_field :v_code, placeholder: "v Code", required: true %>
       </div>
       <br>
-      <div class="field">
+      <div class="field white-text">
         <%= f.label :KeyID %><br />
         <%= f.number_field :key_id, placeholder: "Key ID", required: true %>
       </div>
@@ -23,4 +23,7 @@
     </div>
   <% end %>
   <br>
+  <div class="center">
+    <%= button_to "Remove Character", { controller: :toons, action: :destroy, id: @toon.id }, method: :delete %>
+  </div>
 </div>

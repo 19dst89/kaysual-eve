@@ -1,0 +1,20 @@
+<% current_user.toons.each do |toon| %>
+  <div class="container">
+    <div class="col m3">
+      <h4 class="header"><%= link_to toon.name, toon_path(toon) %></h4>
+      <div class="card blue darken-4 horizontal col m4">
+        <div class="card-image">
+          <%= image_tag(toon.eve_portrait.medium, class: "resposive-img") %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content white-text">
+            <ul>
+              <li>Race: <%= toon.eve_character_sheet.race %></li>
+              <li>Subscription Ends: <%= toon.eve_account_status.paid_until %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
