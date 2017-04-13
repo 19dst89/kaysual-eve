@@ -13,7 +13,6 @@
               <li><strong>Corporation: </strong><%= @character.corporation_name %></li>
               <li><strong>Alliance: </strong><%= @character.alliance_name %></li>
               <li><strong>Balance: </strong><%= number_to_currency(@account_balance.balance) %></li>
-              <li><strong>Skill Queue Ends: </strong><%= @toon.eve_skill_in_training_end %></li>
               <li><strong>Number of Skills: </strong><%= @num_of_skills %></li>
               <li><strong>Logged in Hours: </strong><%= @account_status.logon_minutes / 60 %></li>
             </ul>
