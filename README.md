@@ -1,24 +1,23 @@
-# README
+# Fun(d)raiser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Technologies used
+- Ruby on Rails
+- HTML
+- CSS
 
-Things you may want to cover:
+****** Gems Used *******
+- Materialize
+- Devise
+- Nokogiri
+- EveOnline: <a href="http://www.rubydoc.info/gems/eve_online/0.11.0">Documentation Page</a>
 
-* Ruby version
+Description:
 
-* System dependencies
+The user will be able to see most information about their eve online characters using eve's api.
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+# Creator
 
-* How to run the test suite
+Daniel Thompson <br>
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
