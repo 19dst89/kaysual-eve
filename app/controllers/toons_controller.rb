@@ -59,6 +59,17 @@ class ToonsController < ApplicationController
     end
   end
 
+  def destroy
+    @toon = Toon.find_by_id(params[:id])
+    if current_user.id == @toon.user_id
+      @toon.destroy
+      redirect_to user_path(current_user)
+    else
+      flash[:notice] = "You do not own this character"
+      redirect_to toon_path(@toon)
+    end
+  end
+
 
 
   private
