@@ -4,4 +4,10 @@
   <% if current_user != nil %>
     <h5><%= link_to "View Your Characters", toons_path %></h5>
   <% end %>
+
+  <% @users.each do |user| %>
+    <% user.toons.each do |char| %>
+      <%= image_tag(char.eve_portrait.large) %>
+    <% end %>
+  <% end %>
 </div>
