@@ -1,4 +1,5 @@
-# Fun(d)raiser
+# Kaysual Eve
+  For the casual eve player to track their characters status and skills
 
 # Technologies used
 - Ruby on Rails
